@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import urllib
 import requests
 import os.path
@@ -32,7 +34,7 @@ def pushbulletNotification(apikey, version):
     try:
         from pushbullet import Pushbullet
         pb = Pushbullet(apikey)
-        push = pb.push_note("Realm of the Mad God Update!", "Version: %s" % version)
+        push = pb.push_note("Realm of the Mad God Updated!", "Version: %s" % version)
         print "Pushbullet notification sent!"
     except:
         pass
