@@ -30,6 +30,14 @@ def downloadClient(version):
     urllib.urlretrieve("https://realmofthemadgodhrd.appspot.com/AssembleeGameClient%s.swf" % version, filename)
     return True
 
+def downloadLoader(version):
+    filename = "%s/AGCLoader.swf" % version
+    if os.path.exists(filename):
+        return False
+    print "Downloading loader %s" % version    
+    urllib.urlretrieve("http://www.realmofthemadgod.com/AGCLoader%s.swf" % version, filename)
+    return True
+
 def pushbulletNotification(apikey, version):
     try:
         from pushbullet import Pushbullet
@@ -46,6 +54,7 @@ if not os.path.exists(version):
     os.makedirs(version)
 
 notification = downloadClient(version)
+downloadLoader(version)
 getLanguage("de", version)
 getLanguage("en", version)
 getLanguage("es", version)
