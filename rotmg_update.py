@@ -45,6 +45,7 @@ def pushbulletNotification(apikey, version):
         push = pb.push_note("Realm of the Mad God Updated!", "Version: %s" % version)
         print "Pushbullet notification sent!"
     except:
+        print "Pushbullet not working, try pip install pushbullet.py"
         pass
 
 # Usage: rotmg_update.py [Pushbullet API key]
